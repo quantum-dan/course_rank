@@ -8,11 +8,13 @@ It determines which courses you are currently able to take (by prerequisites), t
 `ocamlopt -o course.native data.ml course.ml` or `ocamlbuild course.native`
 
 ## Usage
-Courses with prerequisites go in the file `courses.txt`.  A list of already-taken courses goes in the file `taken.txt`.
+By default, courses with prerequisites go in the file `courses.txt`.  A list of already-taken courses goes in the file `taken.txt`.
 
 Format:
 
-* `courses.txt`: Each line is a course ID (e.g. MATH121), followed by its prerequisites, separated by commas (no spaces).  For example, `CS2,MATH1,CS1` would be CS2 requires MATH1 and CS1.
+* `courses.txt`: Each line is a course ID (e.g. MATH121), followed by its prerequisites, separated by commas (no spaces).  For example, `CS2,MATH1,CS1` would be CS2 requires MATH1 and CS1. 
 * `taken.txt`: Each line is one course ID that you have taken.
 
-Then, with those files in the working directory, just run `./courses.native`.  It will print out the course ranking.
+Then, with those files in the working directory, just run `./courses.native`.  It will print out the course ranking.  It will also write the full list of courses, with the number they are required by and a list of prerequisites, to `ranked.txt` by default.
+
+To specify the files, run instead `./courses.native -courses <course file> -taken <taken file> -out <output file>`.
