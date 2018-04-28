@@ -5,9 +5,11 @@ This is a simple program to help decide on an optimal course schedule for colleg
 It determines which courses you are currently able to take (by prerequisites), then ranks them according to how many other classes require them, so you can fill the prerequisites for as many courses as possible as quickly as possible.
 
 ## Building
-`ocamlopt -o course.native data.ml course.ml` or `ocamlbuild course.native`
+`ocamlopt -o course.native data.ml course.ml` or `ocamlbuild course.native`.  In addition, there is the pre-built OCaml bytecode file `course`, if you do not want to build it yourself.
 
 ## Usage
+Note: to use `course` instead of compiling it yourself, the following is the exact same, but replace `./courses.native` with `ocamlrun course`.
+
 By default, courses with prerequisites go in the file `courses.txt`.  A list of already-taken courses goes in the file `taken.txt`.
 
 Format:
