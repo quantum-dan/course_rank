@@ -37,7 +37,11 @@ let availableCourses (crs: courses) (taken: StringSet.t) (prs: prereqs) =
 
 let recommendedCourses () = rankCourses (availableCourses !classes !taken !prs) !prs
 
+(*let () =
+  buildData Data.coursesData;
+  buildTaken Data.coursesTaken;
+  List.iter printCourse (recommendedCourses ())*)
+
 let () =
-  buildData (Data.genCourseData "courses.txt");
-  buildTaken (Data.lines "taken.txt");
-  List.iter printCourse (recommendedCourses ())
+  List.iter (fun l -> print_endline (String.concat "," l)) Data.coursesData;
+  List.iter print_endline Data.coursesTaken;
